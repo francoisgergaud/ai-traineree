@@ -12,7 +12,7 @@ PROJECT_NAME = os.getenv("PROJECT_NAME", "DQN-CartPole")
 
 metrics = collections.defaultdict(list)
 task = GymTask("CartPole-v1")
-agent = DQNAgent(task.state_size, task.action_size)
+agent = DQNAgent(task.state_size, task.action_size, device="cpu")
 data_logger = NeptuneLogger(f"{USERNAME}/{PROJECT_NAME}", params=agent.hparams, api_token=os.getenv("NEPTUNE_API_TOKEN"))
 
 iteration = 0
